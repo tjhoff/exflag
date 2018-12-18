@@ -8,6 +8,28 @@ Goals:
 Non-Goals (right now)
 * Provide offline storage / caching of keys
 
+## python server
+
+#!/usr/bin/python3
+```
+from flask import Flask, request
+
+
+app = Flask(__name__)
+@app.route("/flags", methods=['POST'])
+def get_flag():
+    r_body = request.get_json()
+    print(r_body)
+    flag_key = r_body["key"]
+    options = r_body["opts"]
+    env = options.get("environment")
+
+    if env == "production":
+        return "{\"value\": \"on\"}", 200
+    else:
+        return "{\"value\": \"off\"}", 200
+```
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
