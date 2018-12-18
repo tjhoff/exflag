@@ -11,7 +11,7 @@ Non-Goals (right now)
 ## python server
 
 #!/usr/bin/python3
-```
+```python
 from flask import Flask, request
 
 
@@ -29,6 +29,9 @@ def get_flag():
     else:
         return "{\"value\": \"off\"}", 200
 ```
+
+## Usage
+
 
 ## Installation
 

@@ -1,15 +1,12 @@
 defmodule ExFlag.FlagRequest do
-  @type flag_value() :: any()
-  @type flag_key() :: atom() || String.t()
-  @type flag_options() :: map()
-  @type flag_response
+  # @type flag_value() :: any()
+  # @type flag_key() :: atom() || String.t()
+  # @type flag_options() :: map()
 
   @doc "Get a flag from the provided endpoint."
-  @spec get_server_key(cache_value :: flag_value(), key :: flag_key) :: {atom(), atom()}
+  #@spec get_server_key(cache_value :: flag_value(), key :: flag_key) :: {atom(), atom()}
   def get_server_key(nil, endpoint, key, opts) do
     data = %{key: key, opts: opts}
-    IO.inspect(data)
-    IO.inspect(endpoint)
     resp = HTTPoison.post(endpoint, Poison.encode!(data), [{"Content-Type", "application/json"}])
 
     get_server_response(resp)
